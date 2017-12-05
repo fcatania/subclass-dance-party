@@ -29,6 +29,16 @@ $(document).ready(function() {
     );
 
     $('body').append(dancer.$node);
+
+    window.dancers.push(dancer);
+    console.log(window.dancers);
+  });
+
+  // When the Line Up Button is pressed, we will tell each dancer to line up.
+  $('.lineupButton').on('click', function(event) {
+    for (var i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].lineup();
+    }
   });
 });
 
