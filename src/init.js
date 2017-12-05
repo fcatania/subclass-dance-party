@@ -16,12 +16,11 @@ $(document).ready(function() {
      * to the stage.
      */
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
-
+    
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
-
+   
     // make a dancer with a random position
-
     var dancer = new dancerMakerFunction(
       $('body').height() * Math.random(),
       $('body').width() * Math.random(),
@@ -31,7 +30,6 @@ $(document).ready(function() {
     $('body').append(dancer.$node);
 
     window.dancers.push(dancer);
-    console.log(window.dancers);
   });
 
   // When the Line Up Button is pressed, we will tell each dancer to line up.
