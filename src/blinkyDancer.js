@@ -8,6 +8,7 @@ blinkyDancer.prototype.constructor = blinkyDancer;
 blinkyDancer.prototype.step = function() {
   Dancer.prototype.step.call(this);
   this.$node.toggle();
+  this.setPosition();
 };
 
 blinkyDancer.prototype.lineup = function() {

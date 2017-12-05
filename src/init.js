@@ -40,5 +40,30 @@ $(document).ready(function() {
       window.dancers[i].lineup();
     }
   });
+
+  $('.CoupleButton').on('click', function(event) {
+    var randomI1 = Math.floor(Math.random() * (window.dancers.length));
+    var randomI2 = Math.floor(Math.random() * (window.dancers.length));
+
+    var oldDancer1 = window.dancers[randomI1];
+    var oldDancer2 = window.dancers[randomI2];
+  
+    $(oldDancer1.$node).remove();
+    $(oldDancer2.$node).remove();
+
+
+    var randomPosition = $('body').width() * Math.random();
+  
+    var newDancer1 = new VerticalDancer(($('body').height() / 2), randomPosition, 500);
+    var newDancer2 = new VerticalDancer(($('body').height() / 2), randomPosition + 30, 500);
+
+    $('body').append(newDancer1.$node);
+    $('body').append(newDancer2.$node);
+
+    window.dancers[randomI1] = newDancer1;
+    window.dancers[randomI2] = newDancer2;
+
+    
+  });
 });
 
