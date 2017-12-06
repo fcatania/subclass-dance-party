@@ -4,20 +4,22 @@ class blinkyDancer extends Dancer {
 
   constructor(top, left, timeBetweenSteps) {
     super(top, left, timeBetweenSteps);
+    this.$node = $('<img class="smallImage" src="groot-dancing.gif"></img>');
+    this.setPosition();
   }
 
 
   step () {
     super.step();
-    this.$node.toggle();
-    this.setPosition();
+    // this.$node.toggle();
+    // this.setPosition();
   }
 
   lineup () {
     clearTimeout(this.currentTimeout);
     this.timeBetweenSteps = 500;
     this.$node.show();
-    this.left = $('body').width() - 30;
+    this.left = $('body').width() - 150;
     this.setPosition();
     this.step();
   }

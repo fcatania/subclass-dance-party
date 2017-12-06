@@ -4,6 +4,7 @@ class VerticalDancer extends Dancer {
     super(top, left, timeBetweenSteps);
     this.borderColor = 'blue';
     this.isMovingUp = true;
+    this.$node = $('<img class="bigImage" src="leftshark-dancer.gif"></img>');
     this.setPosition();
   }
 

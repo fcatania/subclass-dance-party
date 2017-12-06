@@ -5,6 +5,7 @@ class HorizontalDancer extends Dancer {
     super(top, left, timeBetweenSteps);
     this.borderColor = 'green';
     this.isMovingRight = true;
+    this.$node = $('<img class="bigImage" src="moonwalking.gif"></img>');
     this.setPosition();
   }
   step() {
@@ -12,13 +13,15 @@ class HorizontalDancer extends Dancer {
   
     if (this.isMovingRight) {
       this.left += 15;
-      if (this.left >= $('body').width()) {
+      if (this.left >= $('body').width() - 200) {
         this.isMovingRight = false;
+        $(this.$node).addClass('flipped');
       }
     } else {
       this.left -= 15;
-      if (this.left <= 0) {
+      if (this.left <= -150) {
         this.isMovingRight = true;
+        $(this.$node).removeClass('flipped');
       }
     }
   
@@ -27,14 +30,13 @@ class HorizontalDancer extends Dancer {
   lineup () {
     clearTimeout(this.currentTimeout);
     this.left = 30;
-    this.timeBetweenSteps = 500;
+    $(this.$node).removeClass('flipped');
+    this.timeBetweenSteps = 100;
     this.isMovingRight = true;
     this.setPosition();
     this.step();
   }
 }
-
-
 
 window.HorizontalDancer = HorizontalDancer;
 
